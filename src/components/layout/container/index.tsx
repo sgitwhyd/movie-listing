@@ -1,16 +1,21 @@
 import React from "react";
 import { Navigation } from "@/components/common/";
 
-export const Container = ({ children }: { children: React.ReactNode }) => {
+export const Container = ({
+	children,
+	customClass,
+}: {
+	children: React.ReactNode;
+	customClass?: string;
+}) => {
 	return (
 		<div>
-			<Navigation />
+			<Navigation customClass={customClass} />
 			<main>
 				{children}
-				<div className="w-full md:max-w-7xl mx-auto relative min-h-screen">
-					<div className="w-[400px] h-[250px] bg-brand-primary/900 rounded-[400px] rotate-[-135deg] blur-[175px] absolute right-0 top-[60px]"></div>
-					<div className="w-[400px] h-[250px] bg-brand-primary/800 rounded-[400px] rotate-[-135deg] blur-[175px] absolute left-0 top-[40%]"></div>
-				</div>
+				<div className="w-[400px] h-[250px] bg-brand-primary/900 rounded-[400px] rotate-[-135deg] blur-[175px] absolute right-[10%] top-[20%]"></div>
+				<div className="w-[400px] h-[250px] bg-brand-primary/800 rounded-[400px] rotate-[-135deg] blur-[175px] absolute left-0 top-[40%]"></div>
+				<div className="w-[400px] h-[250px] bg-brand-primary/800 rounded-[400px] rotate-[-135deg] blur-[175px] absolute right-[15%] top-[70%]"></div>
 			</main>
 		</div>
 	);

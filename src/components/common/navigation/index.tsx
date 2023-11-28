@@ -1,19 +1,21 @@
 import WebLogo from "@/assets/logo.png";
+import clsx from "clsx";
+import { Link } from "react-router-dom";
 
-export const Navigation = () => {
+export const Navigation = ({ customClass }: { customClass?: string }) => {
 	return (
-		<header className=" py-4 text-white absolute w-full z-10">
+		<header className={clsx("py-4 text-white  w-full z-10", customClass)}>
 			<nav className="w-full md:max-w-7xl mx-auto flex items-center">
-				<a href="#" className="w-10 h-10">
+				<Link to="/" className="w-10 h-10">
 					<img src={WebLogo} alt="Logo" />
-				</a>
+				</Link>
 				<div className="ml-auto flex gap-4">
-					<a href="#" className="py-3 px-4 font-semibold text-brand-grey/200">
+					<Link to="#" className="py-3 px-4 font-semibold text-brand-grey/200">
 						Movies
-					</a>
-					<a href="#" className="py-3 px-4 font-semibold text-brand-grey/200">
+					</Link>
+					<Link to="#" className="py-3 px-4 font-semibold text-brand-grey/200">
 						TV Show
-					</a>
+					</Link>
 				</div>
 			</nav>
 		</header>
