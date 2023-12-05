@@ -26,41 +26,49 @@ const Detail = () => {
 
 	return (
 		<Container customClass="relative">
-			<div className="w-full md:max-w-7xl mx-auto relative min-h-screen mt-10">
-				<div className="relative">
+			<div className="w-full px md:max-w-7xl mx-auto relative min-h-screen p-5 mt-10">
+				<div className="relative  rounded-[40px] overflow-hidden ">
 					<Swiper
-						spaceBetween={20}
 						autoplay={{
 							delay: 2000,
 							disableOnInteraction: false,
 						}}
 						modules={[Autoplay]}>
-						{data?.movie_backdrops.backdrops.map((backdrop, index) => (
-							<SwiperSlide key={index}>
-								<div className="relative w-full h-[480px]  rounded-[40px] overflow-hidden">
-									<div className="bg-gradient-to-b from-[#362C92] to-[#126297] w-full h-full absolute opacity-80 rounded-[40px] "></div>
-									<img
-										src={
-											tmdbBaseImageUrl +
-											tmdbImageSize.original +
-											backdrop.file_path
-										}
-										className="w-full h-full object-cover  rounded-[40px] "
-										alt={`${data?.movie.title} backdrop image`}
-									/>
-								</div>
-							</SwiperSlide>
-						))}
+						{data?.movie_backdrops.backdrops.length === 0 ? (
+							<div className="relative w-full h-[250px] lg:h-[480px]  rounded-[40px] overflow-hidden">
+								<div className="bg-gradient-to-b from-[#362C92] to-[#126297] w-full h-full absolute opacity-80 rounded-[40px] "></div>
+							</div>
+						) : (
+							data?.movie_backdrops.backdrops.map((backdrop, index) => (
+								<SwiperSlide
+									key={index}
+									className="z-10
+								">
+									<div className="relative w-full h-[250px] lg:h-[480px] ">
+										<div className="bg-gradient-to-b from-[#362C92] to-[#126297] w-full h-full absolute opacity-80  "></div>
+										<img
+											src={
+												tmdbBaseImageUrl +
+												tmdbImageSize.original +
+												backdrop.file_path
+											}
+											className="w-full h-full object-cover"
+											alt={`${data?.movie.title} backdrop image`}
+										/>
+									</div>
+								</SwiperSlide>
+							))
+						)}
 					</Swiper>
-					<div className="absolute left-20 -bottom-[70px] w-[560px] h-[144px] bg-brand-grey/800 rounded-3xl backdrop-blur-md bg-opacity-80 z-10 flex items-center p-10 ">
-						<h1 className="font-semibold text-2xl text-brand-grey/200">
-							{data?.movie.title}
-						</h1>
-					</div>
+				</div>
+				<div className="relative ml-10 lg:ml-20 -mt-20 lg:w-[560px] h-[144px] bg-brand-grey/800 rounded-3xl backdrop-blur-md bg-opacity-80 z-20 flex items-center p-10 ">
+					<h1 className="font-semibold text-2xl text-brand-grey/200">
+						{data?.movie.title}
+					</h1>
 				</div>
 				<div className="grid grid-cols-1 md:grid-cols-2 gap-20 mt-[150px]">
 					<img
-						className="ml-20 w-[480px] h-[720px] rounded-3xl"
+						className="lg:ml-20 w-full   lg:w-[480px] lg:h-[720px] rounded-3xl"
 						src={
 							tmdbBaseImageUrl +
 							tmdbImageSize.original +
@@ -72,7 +80,7 @@ const Detail = () => {
 						<h2 className="text-brand-grey/50 font-bold text-2xl">
 							{data?.movie.tagline}
 						</h2>
-						<p className="font-normal text-xl text-brand-grey/100 text-brand-grey/300">
+						<p className="font-normal text-xl text-brand-grey/100 ">
 							{data?.movie.overview}
 						</p>
 						<div className=" rounded-lg bg-black bg-opacity-[0.65] py-1 px-2 z-10 backdrop-blur-sm flex gap-1 items-center w-fit">
