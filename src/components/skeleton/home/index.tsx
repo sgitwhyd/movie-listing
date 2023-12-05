@@ -22,7 +22,7 @@ export const HomeSkeleton = () => {
 					<Skeleton className="w-full bg-brand-grey/200 h-full absolute object-cover  top-0 z-[9]" />
 				</div>
 			</div>
-			<div className="w-full md:max-w-7xl mx-auto relative min-h-screen mt-[70px] ">
+			<div className="w-full px md:max-w-7xl mx-auto relative min-h-screen px-5 mt-[35px] md:mt-[70px]">
 				<Skeleton className="bg-brand-grey/100 w-56 h-8" />
 				<div
 					className="

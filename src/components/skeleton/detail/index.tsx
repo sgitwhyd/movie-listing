@@ -4,7 +4,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 export const DetailSkeleton = () => {
 	return (
 		<Container customClass="relative">
-			<div className="w-full md:max-w-7xl mx-auto relative min-h-screen mt-10">
+			<div className="w-full px md:max-w-7xl mx-auto relative min-h-screen p-5mt-10">
 				<div className="relative">
 					<Skeleton className="relative w-full h-[480px]  rounded-[40px] overflow-hidden bg-gradient-to-b from-[#362C92] to-[#126297]" />
 
