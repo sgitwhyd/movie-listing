@@ -13,7 +13,7 @@ export const Container = ({
 			<Navigation customClass={customClass} />
 			<main>
 				{children}
-				<div className="w-[400px] h-[250px] bg-brand-primary/900 rounded-[400px] rotate-[-135deg] blur-[175px] absolute right-[10%] top-[20%]"></div>
+				<div className="w-[400px] h-[250px] bg-brand-primary/900 rounded-[400px] rotate-[-135deg] blur-[175px] absolute right-[10%] top-[30%]"></div>
 				<div className="w-[400px] h-[250px] bg-brand-primary/800 rounded-[400px] rotate-[-135deg] blur-[175px] absolute left-0 top-[40%]"></div>
 				<div className="w-[400px] h-[250px] bg-brand-primary/800 rounded-[400px] rotate-[-135deg] blur-[175px] absolute right-[15%] top-[70%]"></div>
 			</main>
