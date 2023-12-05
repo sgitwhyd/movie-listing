@@ -26,6 +26,13 @@ export interface IMovieResponse {
 	total_results: number;
 }
 
+export interface ISearchMovieResponse {
+	page: number;
+	results: IMovie[];
+	total_pages: number;
+	total_results: number;
+}
+
 export interface IMovieGenre {
 	id: number;
 	name: string;
