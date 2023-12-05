@@ -10,6 +10,7 @@ import Pagination from "rc-pagination";
 import { useState, useRef } from "react";
 import { Container } from "@/components/layout";
 import { HomeSkeleton } from "@/components/skeleton";
+import { paginateProperty } from "@/constants/movie";
 
 const Home = () => {
 	const [page, setPage] = useState(1);
@@ -41,7 +42,7 @@ const Home = () => {
 	return (
 		<Container customClass="absolute">
 			<Swiper
-				className="h-[800px]"
+				className="h-[400px] md:h-[500px] lg:h-[800px]"
 				loop
 				autoplay={{
 					delay: 3500,
@@ -55,7 +56,7 @@ const Home = () => {
 				))}
 			</Swiper>
 
-			<div className="w-full md:max-w-7xl mx-auto relative min-h-screen mt-[70px] ">
+			<div className="w-full px md:max-w-7xl mx-auto relative min-h-screen px-5 mt-[35px] md:mt-[70px]">
 				<h1
 					className="font-bold text-4xl text-brand-grey/400"
 					ref={upcomingRef}>
@@ -65,7 +66,7 @@ const Home = () => {
 					<p>Loading</p>
 				) : (
 					<>
-						<div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-11">
+						<div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mt-11">
 							{upComingMovies?.results.map((movie) => (
 								<MovieCard
 									key={movie.id}
@@ -78,7 +79,7 @@ const Home = () => {
 							<Pagination
 								className="mt-12"
 								total={upComingMovies?.total_results}
-								pageSize={20}
+								pageSize={paginateProperty.pageSize}
 								current={page}
 								onChange={handlePageChange}
 							/>
