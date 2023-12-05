@@ -4,3 +4,7 @@ export enum tmdbImageSize {
 	w500 = "w500",
 	w1240 = "w1240",
 }
+
+export const paginateProperty = {
+	pageSize: 20,
+};
