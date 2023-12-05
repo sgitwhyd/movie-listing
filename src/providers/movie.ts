@@ -4,6 +4,7 @@ import {
 	IMovieGenreResponse,
 	IMovieResponse,
 	IDetailMovieResponseWithBackdrop,
+	ISearchMovieResponse,
 } from "@/interfaces/movie";
 import { AxiosResponse } from "axios";
 
@@ -37,7 +38,7 @@ export const useMovieGenre = () =>
 
 export const useUpcomingMovies = ({ page = 1 }: { page: number }) => {
 	return useQuery<IMovieResponse>({
-		queryKey: ["upcomingMovies", { page }], // Use a unique identifier as the first element of the queryKey
+		queryKey: ["upcomingMovies", { page }],
 		queryFn: async () => {
 			try {
 				const response: AxiosResponse<IMovieResponse> = await apiInstance.get(
@@ -84,5 +85,27 @@ export const useDetailMovie = ({ movie_id }: { movie_id: string }) =>
 				movie: requestDetailMovie.data,
 				movie_backdrops: requestBackgdropMovie.data,
 			};
+		},
+	});
+
+export const useSearchMovie = ({
+	query,
+	page,
+}: {
+	query: string;
+	page: number;
+}) =>
+	useQuery<ISearchMovieResponse>({
+		queryKey: ["search_movie", { query }, { page }],
+		queryFn: async () => {
+			const response = await apiInstance.get("/search/movie", {
+				params: {
+					include_adult: false,
+					query,
+					language: "en-US",
+					page,
+				},
+			});
+			return response.data;
 		},
 	});
