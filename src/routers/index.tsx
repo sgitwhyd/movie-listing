@@ -2,6 +2,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import Home from "@/pages/home";
 import Detail from "@/pages/detail";
+import Search from "@/pages/search";
 
 export const router = createBrowserRouter([
 	{
@@ -11,6 +12,10 @@ export const router = createBrowserRouter([
 	{
 		path: "/detail/:id",
 		element: <Detail />,
+	},
+	{
+		path: "/search",
+		element: <Search />,
 	},
 	{
 		path: "*",
