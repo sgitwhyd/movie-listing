@@ -8,3 +8,6 @@ export enum tmdbImageSize {
 export const paginateProperty = {
 	pageSize: 20,
 };
+
+export const API_URL = import.meta.env.VITE_BASE_APIURL;
+export const API_KEY = import.meta.env.VITE_API_KEY;
